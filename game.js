@@ -86,7 +86,7 @@ Bird.prototype.isDead = function(height, pipes){
 	for(var i in pipes){
 		if(!(
 			this.x > pipes[i].x + pipes[i].width ||
-			this.x + this.width < pipes[i].x || 
+			this.x + this.width < pipes[i].x ||
 			this.y > pipes[i].y + pipes[i].height ||
 			this.y + this.height < pipes[i].y
 			)){
@@ -256,7 +256,7 @@ Game.prototype.display = function(){
 	this.ctx.strokeStyle = "#CE9E00";
 	for(var i in this.birds){
 		if(this.birds[i].alive){
-			this.ctx.save(); 
+			this.ctx.save();
 			this.ctx.translate(this.birds[i].x + this.birds[i].width/2, this.birds[i].y + this.birds[i].height/2);
 			this.ctx.rotate(Math.PI/2 * this.birds[i].gravity/20);
 			this.ctx.drawImage(images.bird, -this.birds[i].width/2, -this.birds[i].height/2, this.birds[i].width, this.birds[i].height);
@@ -266,10 +266,10 @@ Game.prototype.display = function(){
 
 	this.ctx.fillStyle = "white";
 	this.ctx.font="20px Oswald, sans-serif";
-	this.ctx.fillText("Score : "+ this.score, 10, 25);
-	this.ctx.fillText("Max Score : "+this.maxScore, 10, 50);
-	this.ctx.fillText("Generation : "+this.generation, 10, 75);
-	this.ctx.fillText("Alive : "+this.alives+" / "+Neuvol.options.population, 10, 100);
+	this.ctx.fillText("Puntaje : "+ this.score, 10, 25);
+	this.ctx.fillText("Récord : "+this.maxScore, 10, 50);
+	this.ctx.fillText("Generación : "+this.generation, 10, 75);
+	this.ctx.fillText("Vivos : "+this.alives+" / "+Neuvol.options.population, 10, 100);
 
 	var self = this;
 	requestAnimationFrame(function(){
@@ -287,7 +287,7 @@ window.onload = function(){
 
 	var start = function(){
 		Neuvol = new Neuroevolution({
-			population:50,
+			population:100,
 			network:[2, [2], 1],
 		});
 		game = new Game();
